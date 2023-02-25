@@ -16,3 +16,41 @@ img {
   display: block;
   max-width: 100%;
 }
+
+.timer {
+  display: flex;
+  gap: 20px;
+}
+
+span {
+  display: block;
+  text-align: center;
+}
+
+.value {
+  font-size: 40px;
+}
+
+.label {
+  font-weight: 700;
+}
+
+input[type='text'] {
+  width: 180px;
+  padding: 0 6px;
+}
+
+button[data-start] {
+  margin-left: 10px;
+  width: 80px;
+}
+
+button[data-start],
+input[type='text'] {
+  font-size: 20px;
+  font-weight: 700;
+  height: 40px;
+  border-radius: 4px;
+  border: 1.6px solid rgb(1, 1, 31);
+  cursor: pointer;
+}
