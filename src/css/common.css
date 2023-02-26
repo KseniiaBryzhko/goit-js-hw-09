@@ -40,13 +40,15 @@ input[type='text'] {
   padding: 0 6px;
 }
 
-button[data-start] {
+button[data-start],
+button[data-stop] {
   margin-left: 10px;
   width: 80px;
 }
 
 button[data-start],
-input[type='text'] {
+input[type='text'],
+button[data-stop] {
   font-size: 20px;
   font-weight: 700;
   height: 40px;
