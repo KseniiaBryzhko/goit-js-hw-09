@@ -55,11 +55,12 @@ function dataChecking(selectedDates) {
       'Please choose a date in the future',
       'OK :)'
     );
-    // window.alert('Please choose a date in the future');
+    clearInterval(timerId);
+    return;
   } else {
     refs.timerBtn.disabled = false;
     refs.timerBtn.addEventListener('click', () => {
-      setInterval(() => {
+      timerId = setInterval(() => {
         renderTimer(convertMs(selectedDate - new Date().getTime()));
       }, 1000);
     });
