@@ -49,22 +49,29 @@ flatpickr(refs.timerInput, options);
 function dataChecking(selectedDates) {
   const selectedDate = selectedDates[0].getTime();
   const currentDate = new Date().getTime();
+  let timeLeft = selectedDate - currentDate;
+  let timerId;
+
   if (selectedDate < currentDate) {
     Notiflix.Report.failure(
       'Ooops, wrong date',
       'Please choose a date in the future',
       'OK :)'
     );
-    clearInterval(timerId);
     return;
   } else {
     refs.timerBtn.disabled = false;
+    refs.timerInput.disabled = true;
     refs.timerBtn.addEventListener('click', () => {
       timerId = setInterval(() => {
-        renderTimer(convertMs(selectedDate - new Date().getTime()));
+        timeLeft -= 1000;
+        if (timeLeft > 0) {
+          renderTimer(convertMs(timeLeft));
+        } else {
+          clearInterval(timerId);
+        }
       }, 1000);
     });
-    refs.timerInput.disabled = true;
   }
 }
 
